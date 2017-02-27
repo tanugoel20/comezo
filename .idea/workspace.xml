@@ -27,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="update.html" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Documents/PDF Reader files/Cookifi/Cookifi/mar16_cookifi_com/mar16_cookifi_com/templates/admin/dish/update.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -52,6 +52,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation_bar.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/navigation_bar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -129,7 +139,6 @@
         <option value="$PROJECT_DIR$/feb15_schools_comezo/migrations/0004_school_info_user.py" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/login.html" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/navigation_bar.html" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/class_input.html" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/section_input.html" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/templatetags/__init__.py" />
@@ -147,6 +156,7 @@
         <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/subject_input.html" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/models.py" />
         <option value="$PROJECT_DIR$/feb15_schools_comezo/views.py" />
+        <option value="$PROJECT_DIR$/feb15_schools_comezo/templates/navigation_bar.html" />
       </list>
     </option>
   </component>
@@ -1175,33 +1185,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/navigation_bar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/static/css/freelancer.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7590">
           <caret line="506" column="0" lean-forward="false" selection-start-line="506" selection-start-column="0" selection-end-line="506" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/stylesheet_header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1252,6 +1239,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="168" column="40" lean-forward="true" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/stylesheet_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feb15_schools_comezo/templates/navigation_bar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
           <folding />
         </state>
       </provider>
