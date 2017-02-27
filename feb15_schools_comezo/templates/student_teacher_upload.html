@@ -1,0 +1,85 @@
+
+{% extends "base.html" %}
+
+{% block body_content %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/1.2.1/bootstrap-filestyle.min.js"> </script>
+    <script type="text/javascript">
+        $(function() {
+            $(document).ready(function () {
+				$(":file").filestyle({buttonName: "btn-primary"});
+
+			});
+
+
+		});
+
+    </script>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h4>Upload Student Information</h4>
+            <a href="{% url 'student_excel' %}">Download Sample .xlsx</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+    <form class="form-horizontal" method="post" action="{% url 'student_excel_update' %}" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Student Information</label>
+                <input type="File" class="form-control filestyle" data-classButton="btn btn-lg" data-input="false" data-classIcon="icon-plus" data-buttonName="btn-lg" data-buttonText="Choose File" placeholder="Student Information" id="student_file" name="student_file" required data-validation-required-message="Please upload .xlsx file">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+
+        <br>
+        <div id="success"></div>
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <button type="submit" class="btn btn-success btn-lg">Upload</button>
+            </div>
+        </div>
+    </form>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h4>Upload Teacher Information</h4>
+            <a href="{% url 'teacher_excel' %}">Download Sample .xlsx</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+    <form class="form-horizontal" method="post" action="{% url 'teacher_excel_update' %}" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Teacher Information</label>
+                <input type="File" class="form-control filestyle" data-classButton="btn btn-lg" data-input="false" data-classIcon="icon-plus" data-buttonName="btn-lg" data-buttonText="Choose File" placeholder="Teacher Information" id="teacher_file" name="teacher_file" required data-validation-required-message="Please upload .xlsx file">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+
+        <br>
+        <div id="success"></div>
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <button type="submit" class="btn btn-success btn-lg">Upload</button>
+            </div>
+        </div>
+    </form>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <form>
+                <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'teacher-tagging' %}">Next</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

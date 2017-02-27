@@ -1,0 +1,49 @@
+
+{% extends "base.html" %}
+
+{% block body_content %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h4>Please select the number of sections in each class</h4>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+    <form class="form-horizontal" method="post" action="{% url 'section-insert' %}">{% csrf_token %}
+        {% for i in r %}
+            <div class="row control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                    <label>Class {{ i }}</label>
+                    <select  class="form-control" placeholder="Class {{ i }}" id="class{{ i }}" name="class{{ i }}" required>
+                        <option value="" disabled selected hidden>Class {{ i }}</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <p class="help-block text-danger"></p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <br>
+        <div id="success"></div>
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <button type="submit" class="btn btn-success btn-lg">Next</button>
+            </div>
+        </div>
+    </form>
+
+        </div>
+    </div>
+{% endblock %}

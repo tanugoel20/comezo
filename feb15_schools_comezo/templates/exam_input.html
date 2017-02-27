@@ -1,0 +1,414 @@
+
+{% extends "base.html" %}
+
+{% block body_content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+    <script type="text/javascript">
+        $(function() {
+            $(document).ready(function () {
+				$(".chzn-select").chosen();
+                $(".chzn-select").val();
+                change_sec();
+				$("#classid").change(function () {
+					change_sec();
+				});
+
+			});
+            function change_sec()
+            {
+                if ($("#classid").val() === "1")
+                {
+                    $("#section1").show();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "2")
+                {
+                    $("#section1").hide();
+                    $("#section2").show();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "3")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").show();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "4")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").show();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "5")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").show();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "6")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").show();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "7")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").show();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "8")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").show();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "9")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").show();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "10")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").show();
+                    $("#section11").hide();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "11")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").show();
+                    $("#section12").hide();
+                }
+                if ($("#classid").val() === "12")
+                {
+                    $("#section1").hide();
+                    $("#section2").hide();
+                    $("#section3").hide();
+                    $("#section4").hide();
+                    $("#section5").hide();
+                    $("#section6").hide();
+                    $("#section7").hide();
+                    $("#section8").hide();
+                    $("#section9").hide();
+                    $("#section10").hide();
+                    $("#section11").hide();
+                    $("#section12").show();
+                }
+            }
+
+		});
+    </script>
+    {% load app_filters %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h4>Please select exams conducted for each class</h4>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+    <form class="form-horizontal" method="post" action="{% url 'exam-insert' %}">{% csrf_token %}
+        <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Class</label>
+                <select  class="form-control" placeholder="Class" id="classid" name="classid" required>
+                    <option value="" disabled selected hidden>Class</option>
+                    {% for class in classes %}
+                    <option value="{{ class }}" id="{{ class }}" name="{{ class }}">Class {{ class }}</option>
+                    {% endfor %}
+                </select>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="row control-group" id="section1" style="display: none;">
+            {% for sec in section_class1 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section1[]" name="section1[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section2" style="display: none;">
+            {% for sec in section_class2 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section2[]" name="section2[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section3" style="display: none;">
+            {% for sec in section_class3 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section3[]" name="section3[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section4" style="display: none;">
+            {% for sec in section_class4 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section4[]" name="section4[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section5" style="display: none;">
+            {% for sec in section_class5 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section5[]" name="section5[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section6" style="display: none;">
+            {% for sec in section_class6 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section6[]" name="section6[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section7" style="display: none;">
+            {% for sec in section_class7 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section7[]" name="section7[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section8" style="display: none;">
+            {% for sec in section_class8 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section8[]" name="section8[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section9" style="display: none;">
+            {% for sec in section_class9 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section9[]" name="section9[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section10" style="display: none;">
+            {% for sec in section_class10 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section10[]" name="section10[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section11" style="display: none;">
+            {% for sec in section_class11 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section11[]" name="section11[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row control-group" id="section12" style="display: none;">
+            {% for sec in section_class12 %}
+
+            <div class="form-group col-xs-2 floating-label-form-group controls">
+                <label>Sections</label>
+                <input type="checkbox" class="form-control" placeholder="Section" id="section12[]" name="section12[]" value="{{ forloop.counter|chr }}">{{ forloop.counter|chr }}
+                <p class="help-block text-danger"></p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Examination List</label>
+                <select class="chzn-select form-control" name="exam[]" id="exam[]" multiple="true" style="width:750px;" data-placeholder="Select Examinations Conducted">
+				  {% for exam in exams %}
+                    <option value="{{ exam.exam_type }}" id="{{ exam.exam_type }}" name="{{ exam.exam_type }}">{{ exam.exam_type }}</option>
+                  {% endfor %}
+
+				</select>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <br>
+        <div id="success"></div>
+        <div class="row">
+            <div class="form-group col-xs-2">
+                <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'exam-insert' %}">Update</button>
+            </div>
+            <div class="form-group col-xs-2">
+                <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'exam-input' %}">Done</button>
+            </div>
+        </div>
+    </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p>Add exam if not present in the list</p>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+    <form class="form-horizontal" method="post" action="{% url 'add-exam' %}">{% csrf_token %}
+        <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>New Exam</label>
+                <input type="text" class="form-control" placeholder="New Exam" id="new_exam" name="new_exam" required data-validation-required-message="Please enter exam type">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+
+        <br>
+        <div id="success"></div>
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            </div>
+        </div>
+
+    </form>
+
+        </div>
+    </div>
+{% endblock %}
