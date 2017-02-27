@@ -149,8 +149,8 @@ REST_FRAMEWORK = {
 
 EMAIL_USE_TLS = int(os.environ.get('EMAIL_USE_TLS',  True))
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'tanugoel20@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'gippibellktbm')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'mail@schools.comezo.in')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'comezo')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
 
 LOGIN_REDIRECT_URL = '/login-redirect/'
