@@ -15,9 +15,10 @@ from openpyxl.styles import PatternFill
 from openpyxl.styles.fills import FILL_NONE
 from openpyxl.styles.fills import FILL_SOLID
 from openpyxl.writer.excel import save_virtual_workbook
-#from feb15_schools_comezo.forms.s3file import S3FileForm
-#from feb15_schools_comezo.forms.student import StudentExcelUpdateForm
+
 from feb15_schools_comezo.forms import *
+from django.contrib import messages
+from django.contrib.messages import get_messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.views import login
@@ -30,9 +31,6 @@ from django.core.mail import EmailMessage
 from feb15_schools_comezo.models import *
 
 
-
-
-
 @login_required
 def home(request):
     return render_to_response(
@@ -41,14 +39,15 @@ def home(request):
     )
 
 
-
-
-
 def index(request):
     return render(request, 'register.html')
 
 
 def landing(request):
+    storage = messages.get_messages(request)
+    for _ in storage:
+        pass
+    storage.used = True
     return render(request, 'registration/login.html')
 
 
@@ -56,6 +55,11 @@ def custom_login(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect('/login-redirect/')
     else:
+        storage = messages.get_messages(request)
+        for _ in storage:
+            pass
+        storage.used = True
+        messages.error(request, 'Incorrect User ID or password')
         return login(request)
 
 
@@ -63,8 +67,16 @@ def custom_login(request):
 @login_required
 def login_redirect(request):
     if request.user.is_staff:
+        storage = messages.get_messages(request)
+        for _ in storage:
+            pass
+        storage.used = True
         return HttpResponseRedirect('/register/')
     else:
+        storage = messages.get_messages(request)
+        for _ in storage:
+            pass
+        storage.used = True
         return HttpResponseRedirect('/class-input/')
 
 
@@ -85,7 +97,7 @@ def school_register(request):
         now = datetime.datetime.now()
         school_id = "SC" + str(now.year) + str(
             now.year + now.month + now.day + now.hour + now.minute + now.second + now.microsecond)
-        if email.endswith("@comezo.com"):
+        if email.endswith("@comezo.in"):
             is_staff = True
         else:
             is_staff = False
@@ -148,9 +160,9 @@ def section_input(request):
     start_class = school.start_class
     end_class = school.end_class
     list = []
-    for i in range(int(start_class), int(end_class)+1):
+    for i in range(int(start_class), int(end_class) + 1):
         list.append(i)
-    for i in range(int(start_class), int(end_class)+1):
+    for i in range(int(start_class), int(end_class) + 1):
         if i == 1:
             s = school_info.objects.filter(user=user, section_class1__isnull=True)
             if s:
@@ -210,7 +222,7 @@ def section_insert(request):
     start_class = school.start_class
     end_class = school.end_class
     if request.method == 'POST':
-        for i in range(int(start_class), int(end_class)+1):
+        for i in range(int(start_class), int(end_class) + 1):
             if i == 1:
                 section_class1 = request.POST.get('class1', '')
                 school.section_class1 = section_class1
@@ -267,7 +279,13 @@ def subject_input(request):
     for i in range(int(start_class), int(end_class) + 1):
         classes.append(i)
     data['classes'] = classes
-    for i in range(int(start_class), int(end_class)+1):
+    try:
+        sc = subject_class.objects.filter(school_id=school)
+    except subject_class.DoesNotExist:
+        sc = None
+    if sc:
+        data['sub_inserted'] = sc
+    for i in range(int(start_class), int(end_class) + 1):
         if i == 1:
             section_class1 = school.section_class1
             sec_class1 = []
@@ -341,12 +359,12 @@ def subject_input(request):
                 sec_class12.append(i)
             data['section_class12'] = sec_class12
 
-
-    for i in range(int(start_class), int(end_class)+1):
+    for i in range(int(start_class), int(end_class) + 1):
         if i == 1:
             section_class1 = school.section_class1
             for sec in range(1, int(section_class1) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -354,7 +372,8 @@ def subject_input(request):
         if i == 2:
             section_class2 = school.section_class2
             for sec in range(1, int(section_class2) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -362,7 +381,8 @@ def subject_input(request):
         if i == 3:
             section_class3 = school.section_class3
             for sec in range(1, int(section_class3) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -370,7 +390,8 @@ def subject_input(request):
         if i == 4:
             section_class4 = school.section_class4
             for sec in range(1, int(section_class4) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -378,7 +399,8 @@ def subject_input(request):
         if i == 5:
             section_class5 = school.section_class5
             for sec in range(1, int(section_class5) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -386,7 +408,8 @@ def subject_input(request):
         if i == 6:
             section_class6 = school.section_class6
             for sec in range(1, int(section_class6) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -394,7 +417,8 @@ def subject_input(request):
         if i == 7:
             section_class7 = school.section_class7
             for sec in range(1, int(section_class7) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -402,7 +426,8 @@ def subject_input(request):
         if i == 8:
             section_class8 = school.section_class8
             for sec in range(1, int(section_class8) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -410,7 +435,8 @@ def subject_input(request):
         if i == 9:
             section_class9 = school.section_class9
             for sec in range(1, int(section_class9) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -418,7 +444,8 @@ def subject_input(request):
         if i == 10:
             section_class10 = school.section_class10
             for sec in range(1, int(section_class10) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -426,7 +453,8 @@ def subject_input(request):
         if i == 11:
             section_class11 = school.section_class11
             for sec in range(1, int(section_class11) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -434,7 +462,8 @@ def subject_input(request):
         if i == 12:
             section_class12 = school.section_class12
             for sec in range(1, int(section_class12) + 1):
-                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                   section_id=chr(sec + 64))
                 if sub:
                     pass
                 else:
@@ -471,88 +500,195 @@ def subject_insert(request):
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "2":
             seclist = request.POST.getlist('section2[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "3":
             seclist = request.POST.getlist('section3[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "4":
             seclist = request.POST.getlist('section4[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "5":
             seclist = request.POST.getlist('section5[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "6":
             seclist = request.POST.getlist('section6[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "7":
             seclist = request.POST.getlist('section7[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "8":
             seclist = request.POST.getlist('section8[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "9":
             seclist = request.POST.getlist('section9[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "10":
             seclist = request.POST.getlist('section10[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "11":
             seclist = request.POST.getlist('section11[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         if classid == "12":
             seclist = request.POST.getlist('section12[]', [])
             for sec in seclist:
                 for sub in subject:
                     subid = subjects.objects.get(subject_name=sub)
-                    sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub, subject_id=subid)
-                    sc.save()
+                    try:
+                        s = subject_class.objects.get(school_id=school, class_id=classid, section_id=sec,
+                                                      subject_name=sub, subject_id=subid)
+                    except subject_class.DoesNotExist:
+                        s = None
+                    if s:
+                        pass
+                    else:
+                        sc = subject_class(school_id=school, class_id=classid, section_id=sec, subject_name=sub,
+                                           subject_id=subid)
+                        sc.save()
         return HttpResponseRedirect('/subject-input/')
     return HttpResponseNotAllowed('Only POST supported')
-
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -560,16 +696,22 @@ def subject_insert(request):
 def exam_input(request):
     user = request.user
     school = school_info.objects.get(user=user)
-    data = {'school': school,}
+    data = {'school': school, }
     exam = exams.objects.all()
-    data = {'exams': exam,}
+    data = {'exams': exam, }
     start_class = school.start_class
     end_class = school.end_class
     classes = []
     for i in range(int(start_class), int(end_class) + 1):
         classes.append(i)
     data['classes'] = classes
-    for i in range(int(start_class), int(end_class)+1):
+    try:
+        ec = exam_class.objects.filter(school_id=school)
+    except exam_class.DoesNotExist:
+        ec = None
+    if ec:
+        data['ex_inserted'] = ec
+    for i in range(int(start_class), int(end_class) + 1):
         if i == 1:
             section_class1 = school.section_class1
             sec_class1 = []
@@ -643,12 +785,12 @@ def exam_input(request):
                 sec_class12.append(i)
             data['section_class12'] = sec_class12
 
-
-    for i in range(int(start_class), int(end_class)+1):
+    for i in range(int(start_class), int(end_class) + 1):
         if i == 1:
             section_class1 = school.section_class1
             for sec in range(1, int(section_class1) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -656,7 +798,8 @@ def exam_input(request):
         if i == 2:
             section_class2 = school.section_class2
             for sec in range(1, int(section_class2) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -664,7 +807,8 @@ def exam_input(request):
         if i == 3:
             section_class3 = school.section_class3
             for sec in range(1, int(section_class3) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -672,7 +816,8 @@ def exam_input(request):
         if i == 4:
             section_class4 = school.section_class4
             for sec in range(1, int(section_class4) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -680,7 +825,8 @@ def exam_input(request):
         if i == 5:
             section_class5 = school.section_class5
             for sec in range(1, int(section_class5) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -688,7 +834,8 @@ def exam_input(request):
         if i == 6:
             section_class6 = school.section_class6
             for sec in range(1, int(section_class6) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -696,7 +843,8 @@ def exam_input(request):
         if i == 7:
             section_class7 = school.section_class7
             for sec in range(1, int(section_class7) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -704,7 +852,8 @@ def exam_input(request):
         if i == 8:
             section_class8 = school.section_class8
             for sec in range(1, int(section_class8) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -712,7 +861,8 @@ def exam_input(request):
         if i == 9:
             section_class9 = school.section_class9
             for sec in range(1, int(section_class9) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -720,7 +870,8 @@ def exam_input(request):
         if i == 10:
             section_class10 = school.section_class10
             for sec in range(1, int(section_class10) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -728,7 +879,8 @@ def exam_input(request):
         if i == 11:
             section_class11 = school.section_class11
             for sec in range(1, int(section_class11) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -736,7 +888,8 @@ def exam_input(request):
         if i == 12:
             section_class12 = school.section_class12
             for sec in range(1, int(section_class12) + 1):
-                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i, section_id=chr(sec + 64))
+                ex = exam_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                               section_id=chr(sec + 64))
                 if ex:
                     pass
                 else:
@@ -773,85 +926,181 @@ def exam_insert(request):
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "2":
             seclist = request.POST.getlist('section2[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "3":
             seclist = request.POST.getlist('section3[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "4":
             seclist = request.POST.getlist('section4[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "5":
             seclist = request.POST.getlist('section5[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "6":
             seclist = request.POST.getlist('section6[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "7":
             seclist = request.POST.getlist('section7[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "8":
             seclist = request.POST.getlist('section8[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "9":
             seclist = request.POST.getlist('section9[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "10":
             seclist = request.POST.getlist('section10[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "11":
             seclist = request.POST.getlist('section11[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         if classid == "12":
             seclist = request.POST.getlist('section12[]', [])
             for sec in seclist:
                 for ex in exam:
                     exid = exams.objects.get(exam_type=ex)
-                    ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
-                    ec.save()
+                    try:
+                        e = exam_class.objects.get(school_id=school, class_id=classid, section_id=sec, exam_type=ex,
+                                                   exam_id=exid)
+                    except exam_class.DoesNotExist:
+                        e = None
+                    if e:
+                        pass
+                    else:
+                        ec = exam_class(school_id=school, class_id=classid, section_id=sec, exam_type=ex, exam_id=exid)
+                        ec.save()
         return HttpResponseRedirect('/exam-input/')
     return HttpResponseNotAllowed('Only POST supported')
 
@@ -860,7 +1109,8 @@ class StudentExcelView(View):
     def get(self, request):
         wb = Workbook()
         ws = wb.create_sheet('Students', index=0)
-        ws.append(['Name', 'Roll Number', 'Class', 'Section', 'Admission Number', 'Date of Birth (dd/mm/yyyy)', 'Date of Joining (dd/mm/yyyy)', 'Parent Name', 'Parent Contact Number'])
+        ws.append(['Name', 'Roll Number', 'Class', 'Section', 'Admission Number', 'Date of Birth (dd/mm/yyyy)',
+                   'Date of Joining (dd/mm/yyyy)', 'Parent Name', 'Parent Contact Number'])
 
         response = HttpResponse(
             save_virtual_workbook(wb),
@@ -921,17 +1171,35 @@ def student_excel_upload(request):
             password = student_id
             school_id = school
             if name is None:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.success(request, 'Student data successfully inserted')
                 break
-            student = student_info(student_id=student_id, name=name, roll_number=roll_number,
-                                   class_id=class_id,section_id=section_id,admission_no=admission_no,
-                                   dob=dob,doj=doj,parent_name=parent_name,parent_contact=parent_contact,
-                                   password=password,school_id=school_id)
-            student.save()
+            try:
+                student = student_info.objects.get(name=name, roll_number=roll_number,
+                                                   class_id=class_id, section_id=section_id, admission_no=admission_no,
+                                                   dob=dob, doj=doj, school_id=school_id)
+            except student_info.DoesNotExist:
+                student = None
+            if student:
+                pass
+            else:
+                try:
+                    student = student_info(student_id=student_id, name=name, roll_number=roll_number,
+                                           class_id=class_id, section_id=section_id, admission_no=admission_no,
+                                           dob=dob, doj=doj, parent_name=parent_name, parent_contact=parent_contact,
+                                           password=password, school_id=school_id)
+                    student.save()
+                except:
+                    storage = messages.get_messages(request)
+                    for _ in storage:
+                        pass
+                    storage.used = True
+                    messages.error(request, 'Student data not inserted. Please try again.')
         return render(request, 'student_teacher_upload.html')
 
-
     return HttpResponseNotAllowed('Only POST supported')
-
 
 
 @login_required
@@ -962,10 +1230,30 @@ def teacher_excel_upload(request):
             password = teacher_id
             school_id = school
             if name is None:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.success(request, 'Teacher data successfully inserted')
                 break
-            teacher = teacher_info(name=name, mobile=mobile, email=email, school_id=school_id, employee_id=employee_id,
-                                   teacher_id=teacher_id, password=password)
-            teacher.save()
+            try:
+                teacher = teacher_info.objects.get(name=name, school_id=school_id,
+                                                   employee_id=employee_id)
+            except teacher_info.DoesNotExist:
+                teacher = None
+            if teacher:
+                pass
+            else:
+                try:
+                    teacher = teacher_info(name=name, mobile=mobile, email=email, school_id=school_id,
+                                           employee_id=employee_id,
+                                           teacher_id=teacher_id, password=password)
+                    teacher.save()
+                except:
+                    storage = messages.get_messages(request)
+                    for _ in storage:
+                        pass
+                    storage.used = True
+                    messages.error(request, 'Teacher data not inserted. Please try again.')
         return render(request, 'student_teacher_upload.html')
 
     return HttpResponseNotAllowed('Only POST supported')
@@ -1138,15 +1426,15 @@ class SubjectTeacherExcelView(View):
         wb = Workbook()
         ws = wb.create_sheet('Subject Teachers', index=0)
         ws.append(['Class', 'Section', 'Subject', 'Teacher Name', 'Employee ID'])
-        '''user = request.user
+        user = request.user
         school = school_info.objects.get(user=user)
-        for o in subject_class.objects.get(school_id=school).all():
+        for o in subject_class.objects.filter(school_id=school):
             ws.append([
                 o.class_id,
                 o.section_id,
                 o.subject_name,
 
-            ])'''
+            ])
 
         response = HttpResponse(
             save_virtual_workbook(wb),
@@ -1156,7 +1444,6 @@ class SubjectTeacherExcelView(View):
         response['Content-Disposition'] = 'attachment; filename=Sample Subject Teacher Information.xlsx'
 
         return response
-
 
 
 @login_required
@@ -1179,15 +1466,35 @@ def subject_teacher_excel_upload(request):
             subject = row[2].value
             if class_id is None:
                 break
-            if teacher_info.objects.get(school_id=school, name=row[3].value, employee_id=row[4].value):
+            try:
                 teacher = teacher_info.objects.get(school_id=school, name=row[3].value, employee_id=row[4].value)
-            else:
+            except teacher_info.DoesNotExist:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.error(request, 'Teacher not found. Please try again with valid information')
                 teacher = None
+                break
             school_id = school
             if class_id is None:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.success(request, 'Teacher tagging successfully done')
                 break
-            ts = teacher_subject(class_id=class_id,section_id=section_id,subject=subject,teacher_id=teacher,school_id=school_id)
-            ts.save()
+            try:
+                ts = teacher_subject(class_id=class_id, section_id=section_id, subject=subject, teacher_id=teacher,
+                                     school_id=school_id)
+                ts.save()
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.success(request, 'Teacher tagging successfully done')
+            except:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.error(request, 'Data not inserted. Please try again.')
         return HttpResponseRedirect('/teacher-tagging/')
 
     return HttpResponseNotAllowed('Only POST supported')
@@ -1203,10 +1510,10 @@ def add_teacher_tagging(request):
         sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=class_id,
                                            section_id=sec_id)
         for s in sub:
-            if request.POST.get(s.subject_name+class_id+sec_id, ''):
-                subject_teacher = request.POST.get(s.subject_name+class_id+sec_id, '')
-                if teacher_info.objects.get(school_id=school, name=subject_teacher):
-                    teacher = teacher_info.objects.get(school_id=school, name=subject_teacher)
+            if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                    teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
                 else:
                     teacher = None
                 ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
@@ -1218,12 +1525,98 @@ def add_teacher_tagging(request):
     return HttpResponseNotAllowed('Only POST supported')
 
 
-
 class ClassTeacherExcelView(View):
     def get(self, request):
         wb = Workbook()
         ws = wb.create_sheet('Class Teachers', index=0)
         ws.append(['Class', 'Section', 'Class Teacher Name', 'Employee ID'])
+        user = request.user
+        school = school_info.objects.get(user=user)
+        for i in range(int(school.start_class), int(school.end_class) + 1):
+            if i == 1:
+                for sec in range(1, int(school.section_class1) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 2:
+                for sec in range(1, int(school.section_class2) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 3:
+                for sec in range(1, int(school.section_class3) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 4:
+                for sec in range(1, int(school.section_class4) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 5:
+                for sec in range(1, int(school.section_class5) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 6:
+                for sec in range(1, int(school.section_class6) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 7:
+                for sec in range(1, int(school.section_class7) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 8:
+                for sec in range(1, int(school.section_class8) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 9:
+                for sec in range(1, int(school.section_class9) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 10:
+                for sec in range(1, int(school.section_class10) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 11:
+                for sec in range(1, int(school.section_class11) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
+            if i == 12:
+                for sec in range(1, int(school.section_class12) + 1):
+                    ws.append([
+                        i,
+                        chr(sec + 64),
+
+                    ])
 
         response = HttpResponse(
             save_virtual_workbook(wb),
@@ -1233,7 +1626,6 @@ class ClassTeacherExcelView(View):
         response['Content-Disposition'] = 'attachment; filename=Sample Class Teacher Information.xlsx'
 
         return response
-
 
 
 @login_required
@@ -1254,21 +1646,38 @@ def class_teacher_excel_upload(request):
             class_id = row[0].value
             section_id = row[1].value
             if class_id is None:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.success(request, 'Class Teachers successfully added')
                 break
-            if teacher_info.objects.get(school_id=school, name=row[2].value, employee_id=row[3].value):
+            try:
                 teacher = teacher_info.objects.get(school_id=school, name=row[2].value, employee_id=row[3].value)
-            else:
-                teacher=None
+            except teacher_info.DoesNotExist:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.error(request, 'Teacher not found. Please try again with valid information')
+                teacher = None
+                break
             school_id = school
             if class_id is None:
                 break
-            ts = class_teacher(class_id=class_id,section_id=section_id,teacher_id=teacher,school_id=school_id)
-            ts.save()
+            try:
+                ts = class_teacher(class_id=class_id, section_id=section_id, teacher_id=teacher, school_id=school_id)
+                ts.save()
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.success(request, 'Class Teachers successfully added')
+            except:
+                storage = messages.get_messages(request)
+                for _ in storage:
+                    pass
+                messages.error(request, 'Data not inserted. Please try again.')
         return HttpResponseRedirect('/teacher-tagging/')
 
-
     return HttpResponseNotAllowed('Only POST supported')
-
 
 
 @login_required
@@ -1279,8 +1688,8 @@ def class_teacher_tagging(request):
         class_id = request.POST.get('classid', '')
         sec_id = request.POST.get('secid', '')
         teacher = request.POST.get('class_teacher', '')
-        if teacher_info.objects.get(school_id=school, name=teacher):
-            teacher = teacher_info.objects.get(school_id=school, name=teacher)
+        if teacher_info.objects.get(school_id=school, teacher_id=teacher):
+            teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
         else:
             teacher = None
         ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher, school_id=school)
@@ -1290,4 +1699,15 @@ def class_teacher_tagging(request):
     return HttpResponseNotAllowed('Only POST supported')
 
 
-
+def subteacher_autocomplete(request):
+    user = request.user
+    school = school_info.objects.get(user=user)
+    term = request.GET.get('term', '')
+    try:
+        teachers = teacher_info.objects.filter(school_id=school, name__istartswith=term)
+        data = []
+        for teacher in teachers:
+            data.append({'id': teacher.teacher_id, 'label': teacher.name + " " + teacher.employee_id, 'value': teacher.teacher_id})
+        return JsonResponse(data=data, safe=False)
+    except teacher_info.DoesNotExist:
+        return HttpResponseRedirect('/teacher-tagging/')

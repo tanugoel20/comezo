@@ -15,7 +15,7 @@ def get_ga_hash(self):
 
 
 def is_comezo(self):
-    return self.email.endswith("@comezo.com")
+    return self.email.endswith("@comezo.in")
 
 
 User.add_to_class('ga_hash', get_ga_hash)

@@ -411,4 +411,225 @@
 
         </div>
     </div>
+    <br>
+    <br>
+    <table class="table table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th>Class</th>
+          <th>Section</th>
+          <th>Examinations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if ex_inserted %}
+            {% for class in classes %}
+                {% if class == 1 %}
+                    {% for sec in section_class1 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 2 %}
+                    {% for sec in section_class2 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 3 %}
+                    {% for sec in section_class3 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 4 %}
+                    {% for sec in section_class4 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 5 %}
+                    {% for sec in section_class5 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 6 %}
+                    {% for sec in section_class6 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 7 %}
+                    {% for sec in section_class7 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 8 %}
+                    {% for sec in section_class8 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 9 %}
+                    {% for sec in section_class9 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 10 %}
+                    {% for sec in section_class10 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 11 %}
+                    {% for sec in section_class11 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                {% if class == 12 %}
+                    {% for sec in section_class12 %}
+                    <tr>
+                          <td>{{ class }}</td>
+                          <td>{{ sec|chr }}</td>
+                          <td>
+                            {% for e in ex_inserted %}
+                                {% if e.class_id == class|strng and e.section_id == sec|chr %}
+
+                                  {{ e.exam_type }}&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                {% endif %}
+                            {% endfor %}
+                          </td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
 {% endblock %}

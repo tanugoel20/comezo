@@ -108,6 +108,10 @@
 {% endblock %}
 
 {% block body_content %}
+    <div id="submit-msg" style="display: none;" class="alert alert-info alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p id="register-status">Submit message</p>
+    </div>
     <div class="row">
         <div class="col-lg-12 text-center">
             <h2>Registration</h2>
@@ -201,7 +205,5 @@
 
         </div>
     </div>
-    <div id="submit-msg" style="display: none;">
-        <p id="register-status">Submit message</p>
-    </div>
+
 {% endblock %}

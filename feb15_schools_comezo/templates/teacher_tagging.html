@@ -3,6 +3,7 @@
 
 {% block body_content %}
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/1.2.1/bootstrap-filestyle.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(function() {
 
@@ -2285,7 +2286,7 @@
                     $("#subjectc1s4").hide(); $("#subjectc2s4").hide(); $("#subjectc3s4").hide(); $("#subjectc4s4").hide(); $("#subjectc5s4").hide(); $("#subjectc6s4").hide(); $("#subjectc7s4").hide(); $("#subjectc8s4").hide(); $("#subjectc9s4").hide(); $("#subjectc10s4").hide(); $("#subjectc11s4").hide(); $("#subjectc12s4").hide();
                     $("#subjectc1s5").hide(); $("#subjectc2s5").hide(); $("#subjectc3s5").hide(); $("#subjectc4s5").hide(); $("#subjectc5s5").hide(); $("#subjectc6s5").hide(); $("#subjectc7s5").hide(); $("#subjectc8s5").hide(); $("#subjectc9s5").hide(); $("#subjectc10s5").hide(); $("#subjectc11s5").hide(); $("#subjectc12s5").hide();
                     $("#subjectc1s6").hide(); $("#subjectc2s6").hide(); $("#subjectc3s6").hide(); $("#subjectc4s6").hide(); $("#subjectc5s6").hide(); $("#subjectc6s6").hide(); $("#subjectc7s6").hide(); $("#subjectc8s6").hide(); $("#subjectc9s6").hide(); $("#subjectc10s6").hide(); $("#subjectc11s6").hide(); $("#subjectc12s6").hide();
-                    $("#subjectc1s7").hide(); $("#subjectc2s7").hide(); $("#subjectc3s7").hide(); $("#subjectc4s7").hide(); $("#subjectc5s7").hide(); $("#subjectc6s7").hide(); $("#subjectc7s7").hide(); $("#subjectc8s7").hide(); $("#subjectc9s7").hide(); $("#subjectc10s7").hide(); $("#subjectc11s7").hide(); $("#subjectc12s7").hide();
+                         $("#subjectc1s7").hide(); $("#subjectc2s7").hide(); $("#subjectc3s7").hide(); $("#subjectc4s7").hide(); $("#subjectc5s7").hide(); $("#subjectc6s7").hide(); $("#subjectc7s7").hide(); $("#subjectc8s7").hide(); $("#subjectc9s7").hide(); $("#subjectc10s7").hide(); $("#subjectc11s7").hide(); $("#subjectc12s7").hide();
                     $("#subjectc1s8").hide(); $("#subjectc2s8").hide(); $("#subjectc3s8").hide(); $("#subjectc4s8").hide(); $("#subjectc5s8").hide(); $("#subjectc6s8").hide(); $("#subjectc7s8").hide(); $("#subjectc8s8").hide(); $("#subjectc9s8").hide(); $("#subjectc10s8").hide(); $("#subjectc11s8").hide(); $("#subjectc12s8").show();
                     $("#subjectc1s9").hide(); $("#subjectc2s9").hide(); $("#subjectc3s9").hide(); $("#subjectc4s9").hide(); $("#subjectc5s9").hide(); $("#subjectc6s9").hide(); $("#subjectc7s9").hide(); $("#subjectc8s9").hide(); $("#subjectc9s9").hide(); $("#subjectc10s9").hide(); $("#subjectc11s9").hide(); $("#subjectc12s9").hide();
                     $("#subjectc1s10").hide(); $("#subjectc2s10").hide(); $("#subjectc3s10").hide(); $("#subjectc4s10").hide(); $("#subjectc5s10").hide(); $("#subjectc6s10").hide(); $("#subjectc7s10").hide(); $("#subjectc8s10").hide(); $("#subjectc9s10").hide(); $("#subjectc10s10").hide(); $("#subjectc11s10").hide(); $("#subjectc12s10").hide();
@@ -2357,8 +2358,1233 @@
 
 		});
 
+        $(function () {
+            {% if subject_class1 %}
+                {% for sub in subject_class1 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "1A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "1B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "1C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "1D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "1E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "1F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "1G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "1H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "1I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "1J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "1K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "1L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class2 %}
+                {% for sub in subject_class2 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "2A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "2B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "2C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "2D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "2E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "2F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "2G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "2H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "2I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "2J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "2K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "2L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class3 %}
+                {% for sub in subject_class3 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "3A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "3B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "3C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "3D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "3E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "3F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "3G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "3H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "3I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "3J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "3K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "3L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class4 %}
+                {% for sub in subject_class4 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "4A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "4B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "4C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "4D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "4E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "4F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "4G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "4H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "4I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "4J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "4K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "4L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class5 %}
+                {% for sub in subject_class5 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "5A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "5B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "5C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "5D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "5E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "5F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "1G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "5H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "5I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "5J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "5K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "5L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class6 %}
+                {% for sub in subject_class6 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "6A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "6B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "6C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "6D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "6E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "6F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "6G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "6H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "6I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "6J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "6K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "6L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class7 %}
+                {% for sub in subject_class7 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "7A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "7B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "7C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "7D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "7E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "7F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "7G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "7H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "7I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "7J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "7K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "7L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class8 %}
+                {% for sub in subject_class8 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "8A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "8B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "8C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "8D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "8E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "8F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "8G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "8H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "8I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "8J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "8K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "8L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class9 %}
+                {% for sub in subject_class9 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "9A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "9B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "9C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "9D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "9E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "9F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "9G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "9H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "9I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "9J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "9K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "9L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class10 %}
+                {% for sub in subject_class10 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "10A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "10B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "10C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "10D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "10E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "10F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "10G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "10H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "10I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "10J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "10K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "10L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class11 %}
+                {% for sub in subject_class11 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "11A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "11B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "11C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "11D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "11E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "11F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "11G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "11H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "11I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "11J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "11K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "11L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% if subject_class12 %}
+                {% for sub in subject_class12 %}
+                    {% if sub.0 %}
+                        {% for s in sub.0 %}
+                        $("#" + "{{ s.subject_name }}" + "12A").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.1 %}
+                        {% for s in sub.1 %}
+                        $("#" + "{{ s.subject_name }}" + "12B").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.2 %}
+                        {% for s in sub.2 %}
+                        $("#" + "{{ s.subject_name }}" + "12C").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.3 %}
+                        {% for s in sub.3 %}
+                        $("#" + "{{ s.subject_name }}" + "12D").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.4 %}
+                        {% for s in sub.4 %}
+                        $("#" + "{{ s.subject_name }}" + "12E").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.5 %}
+                        {% for s in sub.5 %}
+                        $("#" + "{{ s.subject_name }}" + "12F").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.6 %}
+                        {% for s in sub.6 %}
+                        $("#" + "{{ s.subject_name }}" + "12G").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.7 %}
+                        {% for s in sub.7 %}
+                        $("#" + "{{ s.subject_name }}" + "12H").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.8 %}
+                        {% for s in sub.8 %}
+                        $("#" + "{{ s.subject_name }}" + "12I").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.9 %}
+                        {% for s in sub.9 %}
+                        $("#" + "{{ s.subject_name }}" + "12J").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.10 %}
+                        {% for s in sub.10 %}
+                        $("#" + "{{ s.subject_name }}" + "12K").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                    {% if sub.11 %}
+                        {% for s in sub.11 %}
+                        $("#" + "{{ s.subject_name }}" + "12L").autocomplete({
+                            source: "/subteacher-autocomplete/",
+                            minLength: 1
+                        });
+                       {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            $("#class_teacher").autocomplete({
+                source: "/subteacher-autocomplete/",
+                minLength: 1
+            });
+        });
+
     </script>
     {% load app_filters %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if 'error' in message.tags %}
+                <div class="alert alert-danger alert-{{ message.error }} col-md-4 col-md-offset-2" role="alert">
+                    <strong>Error!</strong> {{ message }}
+                </div>
+                <br><br><br><br>
+            {% endif %}
+
+            {% if 'success' in message.tags %}
+                <div class="alert alert-success alert-{{ message.success }} col-md-4 col-md-offset-2" role="alert">
+                    <strong>Success!</strong> {{ message }}
+                </div>
+                <br><br><br><br>
+            {% endif %}
+
+        {% endfor %}
+    {% endif %}
     <div class="row">
         <div class="col-lg-12 text-center">
             <h4>Tag Teachers to each section's subjects</h4>
@@ -2478,9 +3704,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1A" name="{{ s.subject_name }}1A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2496,9 +3720,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1B" name="{{ s.subject_name }}1B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2514,9 +3736,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1C" name="{{ s.subject_name }}1C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2532,9 +3752,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1D" name="{{ s.subject_name }}1D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2550,9 +3768,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1E" name="{{ s.subject_name }}1E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2568,9 +3784,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1F" name="{{ s.subject_name }}1F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2586,9 +3800,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1G" name="{{ s.subject_name }}1G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2604,9 +3816,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1H" name="{{ s.subject_name }}1H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2622,9 +3832,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1I" name="{{ s.subject_name }}1I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2640,9 +3848,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1J" name="{{ s.subject_name }}1J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2658,9 +3864,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1k" name="{{ s.subject_name }}1K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2676,9 +3880,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}1L" name="{{ s.subject_name }}1L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2698,9 +3900,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2A" name="{{ s.subject_name }}2A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2716,9 +3916,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2B" name="{{ s.subject_name }}2B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2734,9 +3932,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2C" name="{{ s.subject_name }}2C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2752,9 +3948,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2D" name="{{ s.subject_name }}2D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2770,9 +3964,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2E" name="{{ s.subject_name }}2E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2788,9 +3980,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2F" name="{{ s.subject_name }}2F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2806,9 +3996,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2G" name="{{ s.subject_name }}2G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2824,9 +4012,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2H" name="{{ s.subject_name }}2H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2842,9 +4028,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2I" name="{{ s.subject_name }}2I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2860,9 +4044,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2J" name="{{ s.subject_name }}2J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2878,9 +4060,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2K" name="{{ s.subject_name }}2K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2896,9 +4076,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}2L" name="{{ s.subject_name }}2L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2918,9 +4096,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3A" name="{{ s.subject_name }}3A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2936,9 +4112,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3B" name="{{ s.subject_name }}3B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2954,9 +4128,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3C" name="{{ s.subject_name }}3C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2972,9 +4144,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3D" name="{{ s.subject_name }}3D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -2990,9 +4160,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3E" name="{{ s.subject_name }}3E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3008,9 +4176,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3F" name="{{ s.subject_name }}3F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3026,9 +4192,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3G" name="{{ s.subject_name }}3G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3044,9 +4208,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3H" name="{{ s.subject_name }}3H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3062,9 +4224,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3I" name="{{ s.subject_name }}3I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3080,9 +4240,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3J" name="{{ s.subject_name }}3J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3098,9 +4256,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3K" name="{{ s.subject_name }}3K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3116,9 +4272,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}3L" name="{{ s.subject_name }}3L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3138,9 +4292,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4A" name="{{ s.subject_name }}4A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3156,9 +4308,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4B" name="{{ s.subject_name }}4B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3174,9 +4324,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4C" name="{{ s.subject_name }}4C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3192,9 +4340,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4D" name="{{ s.subject_name }}4D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3210,9 +4356,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4E" name="{{ s.subject_name }}4E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3228,9 +4372,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4F" name="{{ s.subject_name }}4F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3246,9 +4388,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4G" name="{{ s.subject_name }}4G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3264,9 +4404,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4H" name="{{ s.subject_name }}4H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3282,9 +4420,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4I" name="{{ s.subject_name }}4I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3300,9 +4436,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4J" name="{{ s.subject_name }}4J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3318,9 +4452,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4K" name="{{ s.subject_name }}4K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3336,9 +4468,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}4L" name="{{ s.subject_name }}4L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3358,9 +4488,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5A" name="{{ s.subject_name }}5A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3376,9 +4504,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5B" name="{{ s.subject_name }}5B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3394,9 +4520,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5C" name="{{ s.subject_name }}5C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3412,9 +4536,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5D" name="{{ s.subject_name }}5D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3430,9 +4552,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5E" name="{{ s.subject_name }}5E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3448,9 +4568,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5F" name="{{ s.subject_name }}5F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3466,9 +4584,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5G" name="{{ s.subject_name }}5G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3484,9 +4600,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5H" name="{{ s.subject_name }}5H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3502,9 +4616,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5I" name="{{ s.subject_name }}5I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3520,9 +4632,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5J" name="{{ s.subject_name }}5J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3538,9 +4648,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5K" name="{{ s.subject_name }}5K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3556,9 +4664,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}5L" name="{{ s.subject_name }}5L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3578,9 +4684,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6A" name="{{ s.subject_name }}6A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3596,9 +4700,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6B" name="{{ s.subject_name }}6B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3614,9 +4716,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6C" name="{{ s.subject_name }}6C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3632,9 +4732,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6D" name="{{ s.subject_name }}6D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3650,9 +4748,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6E" name="{{ s.subject_name }}6E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3668,9 +4764,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6F" name="{{ s.subject_name }}6F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3686,9 +4780,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6G" name="{{ s.subject_name }}6G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3704,9 +4796,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6H" name="{{ s.subject_name }}6H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3722,9 +4812,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6I" name="{{ s.subject_name }}6I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3740,9 +4828,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6J" name="{{ s.subject_name }}6J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3758,9 +4844,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6K" name="{{ s.subject_name }}6K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3776,9 +4860,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}6L" name="{{ s.subject_name }}6L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3798,9 +4880,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7A" name="{{ s.subject_name }}7A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3816,9 +4896,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7B" name="{{ s.subject_name }}7B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3834,9 +4912,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7C" name="{{ s.subject_name }}7C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3852,9 +4928,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7D" name="{{ s.subject_name }}7D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3870,9 +4944,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7E" name="{{ s.subject_name }}7E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3888,9 +4960,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7F" name="{{ s.subject_name }}7F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3906,9 +4976,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7G" name="{{ s.subject_name }}7G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3924,9 +4992,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7H" name="{{ s.subject_name }}7H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3942,9 +5008,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7I" name="{{ s.subject_name }}7I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3960,9 +5024,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7J" name="{{ s.subject_name }}7J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3978,9 +5040,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7K" name="{{ s.subject_name }}7K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -3996,9 +5056,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}7L" name="{{ s.subject_name }}7L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4018,9 +5076,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8A" name="{{ s.subject_name }}8A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4036,9 +5092,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8B" name="{{ s.subject_name }}8B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4054,9 +5108,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8C" name="{{ s.subject_name }}8C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4072,9 +5124,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8D" name="{{ s.subject_name }}8D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4090,9 +5140,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8E" name="{{ s.subject_name }}8E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4108,9 +5156,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8F" name="{{ s.subject_name }}8F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4126,9 +5172,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8G" name="{{ s.subject_name }}8G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4144,9 +5188,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8H" name="{{ s.subject_name }}8H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4162,9 +5204,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8I" name="{{ s.subject_name }}8I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4180,9 +5220,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8J" name="{{ s.subject_name }}8J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4198,9 +5236,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8K" name="{{ s.subject_name }}8K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4216,9 +5252,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}8L" name="{{ s.subject_name }}8L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4238,9 +5272,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9A" name="{{ s.subject_name }}9A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4256,9 +5288,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9B" name="{{ s.subject_name }}9B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4274,9 +5304,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9C" name="{{ s.subject_name }}9C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4292,9 +5320,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9D" name="{{ s.subject_name }}9D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4310,9 +5336,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9E" name="{{ s.subject_name }}9E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4328,9 +5352,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9F" name="{{ s.subject_name }}9F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4346,9 +5368,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9G" name="{{ s.subject_name }}9G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4364,9 +5384,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9H" name="{{ s.subject_name }}9H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4382,9 +5400,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9I" name="{{ s.subject_name }}9I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4400,9 +5416,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9J" name="{{ s.subject_name }}9J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4418,9 +5432,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9K" name="{{ s.subject_name }}9K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4436,9 +5448,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}9L" name="{{ s.subject_name }}9L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4458,9 +5468,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10A" name="{{ s.subject_name }}10A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4476,9 +5484,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10B" name="{{ s.subject_name }}10B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4494,9 +5500,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10C" name="{{ s.subject_name }}10C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4512,9 +5516,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10D" name="{{ s.subject_name }}10D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4530,9 +5532,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10E" name="{{ s.subject_name }}10E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4548,9 +5548,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10F" name="{{ s.subject_name }}10F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4566,9 +5564,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10G" name="{{ s.subject_name }}10G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4584,9 +5580,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10H" name="{{ s.subject_name }}10H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4602,9 +5596,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10I" name="{{ s.subject_name }}10I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4620,9 +5612,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10J" name="{{ s.subject_name }}10J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4638,9 +5628,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10K" name="{{ s.subject_name }}10K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4656,9 +5644,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}10L" name="{{ s.subject_name }}10L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4678,9 +5664,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11A" name="{{ s.subject_name }}11A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4696,9 +5680,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11B" name="{{ s.subject_name }}11B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4714,9 +5696,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11C" name="{{ s.subject_name }}11C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4732,9 +5712,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11D" name="{{ s.subject_name }}11D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4750,9 +5728,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11E" name="{{ s.subject_name }}11E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4768,9 +5744,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11F" name="{{ s.subject_name }}11F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4786,9 +5760,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11G" name="{{ s.subject_name }}11G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4804,9 +5776,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11H" name="{{ s.subject_name }}11H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4822,9 +5792,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11I" name="{{ s.subject_name }}11I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4840,9 +5808,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11J" name="{{ s.subject_name }}11J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4858,9 +5824,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11K" name="{{ s.subject_name }}11K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4876,9 +5840,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}11L" name="{{ s.subject_name }}11L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4898,9 +5860,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12A" name="{{ s.subject_name }}12A">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4916,9 +5876,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12B" name="{{ s.subject_name }}12B">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4934,9 +5892,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12C" name="{{ s.subject_name }}12C">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4952,9 +5908,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12D" name="{{ s.subject_name }}12D">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4970,9 +5924,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12E" name="{{ s.subject_name }}12E">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -4988,9 +5940,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12F" name="{{ s.subject_name }}12F">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -5006,9 +5956,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12G" name="{{ s.subject_name }}12G">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -5024,9 +5972,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12H" name="{{ s.subject_name }}12H">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -5042,9 +5988,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12I" name="{{ s.subject_name }}12I">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -5060,9 +6004,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12J" name="{{ s.subject_name }}12J">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -5078,9 +6020,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12K" name="{{ s.subject_name }}12K">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}
@@ -5096,9 +6036,7 @@
                         <input type="text" class="form-control" placeholder="{{ s.subject_name }}" id="{{ s.subject_name }}12L" name="{{ s.subject_name }}12L">
                         <p class="help-block text-danger"></p>
                     </div>
-                    <div class="form-group col-xs-9">
-                        <button type="submit" class="btn btn-success btn-lg" formaction="{% url 'add-teacher-tagging' %}">Submit</button>
-                    </div>
+
                 </div>
 
                 {% endfor %}

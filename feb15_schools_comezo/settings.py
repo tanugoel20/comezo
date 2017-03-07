@@ -28,12 +28,16 @@ SECRET_KEY = 'slwq1%22=m5ov2398ok&bk(zts9-ez3!wjtnb3fhtnjwp9fqa^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'comezo.fwd.wf',
+    '127.0.0.1',
+]
 
 INTERNAL_IPS = (
     '0.0.0.0',
     '127.0.0.1',
     '192.168.*.*',
+
 )
 # Application definition
 
@@ -149,8 +153,8 @@ REST_FRAMEWORK = {
 
 EMAIL_USE_TLS = int(os.environ.get('EMAIL_USE_TLS',  True))
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'mail@schools.comezo.in')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'comezo')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'tanugoel20@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'gippibellktbm')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
 
 LOGIN_REDIRECT_URL = '/login-redirect/'

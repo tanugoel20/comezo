@@ -24,18 +24,16 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    #url(r'^teacher-tagging/$', TemplateView.as_view(template_name="teacher_tagging.html"), name='teacher-tagging'),
     url(r'^student-teacher-upload/$', TemplateView.as_view(template_name="student_teacher_upload.html"), name=''),
     url(r'^test/$', TemplateView.as_view(template_name="test.html"), name=''),
 
     url(r'^success/$', TemplateView.as_view(template_name="success.html"), name='success'),
-    #url(r'^exam-input/$', TemplateView.as_view(template_name="exam_input.html"), name=''),
     url(r'^school_register$', school_register, name='school-register'),
     url(r'^register/$', index, name='register'),
     url(r'^$', landing, name='landing'),
     url(r'^login/$', custom_login, name='login'),
     url(r'^login-redirect/$', login_redirect, name='login-redirect'),
-    url(r'^logout/$', auth_views.logout,{'next_page': '/login/'}, name='logout'),
+    url(r'^logout/$', auth_views.logout,{'next_page': '/'}, name='logout'),
     url(r'^class-input/$', class_input, name='class-input'),
     url(r'^class-insert/$', class_insert, name='class-insert'),
     url(r'^section-input/$', section_input, name='section-input'),
@@ -57,5 +55,5 @@ urlpatterns = [
     url(r'^class/teacher/excel/$', ClassTeacherExcelView.as_view(), name='class_teacher_excel'),
     url(r'^class-teacher/excel/update/$', class_teacher_excel_upload, name='class_teacher_excel_update'),
     url(r'^class-teacher-tagging/$', class_teacher_tagging, name='class-teacher-tagging'),
-
+    url(r'^subteacher-autocomplete/$', subteacher_autocomplete, name='subteacher-autocomplete'),
 ]

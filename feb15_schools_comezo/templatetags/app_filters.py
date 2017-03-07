@@ -11,3 +11,8 @@ def chr_(value):
 @register.filter()
 def to_int(value):
     return int(value)
+
+
+@register.filter(name='strng')
+def str_(value):
+    return str(value)
