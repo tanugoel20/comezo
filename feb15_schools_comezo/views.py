@@ -1269,6 +1269,20 @@ def teacher_tagging(request):
     for i in range(int(start_class), int(end_class) + 1):
         classes.append(i)
     data['classes'] = classes
+    subjects = subject_class.objects.filter(school_id=school)
+    data['subjects'] = subjects
+    flag = True
+    data['flag'] = flag
+    try:
+        teachers = teacher_subject.objects.filter(school_id=school)
+        data['teachers'] = teachers
+    except teacher_subject.DoesNotExist:
+        pass
+    try:
+        class_teachers = class_teacher.objects.filter(school_id=school)
+        data['class_teachers'] = class_teachers
+    except class_teacher.DoesNotExist:
+        pass
     for i in range(int(start_class), int(end_class) + 1):
         if i == 1:
             section_class1 = school.section_class1
@@ -1505,20 +1519,223 @@ def add_teacher_tagging(request):
     user = request.user
     school = school_info.objects.get(user=user)
     if request.method == 'POST':
-        class_id = request.POST.get('classid', '')
-        sec_id = request.POST.get('secid', '')
-        sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=class_id,
-                                           section_id=sec_id)
-        for s in sub:
-            if request.POST.get(s.subject_name + class_id + sec_id, ''):
-                subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
-                if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
-                    teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
-                else:
-                    teacher = None
-                ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
-                                     school_id=school)
-                ts.save()
+        for i in range(int(school.start_class), int(school.end_class) + 1):
+            if i == 1:
+                for sec in range(1, int(school.section_class1) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 2:
+                for sec in range(1, int(school.section_class2) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 3:
+                for sec in range(1, int(school.section_class3) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 4:
+                for sec in range(1, int(school.section_class4) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 5:
+                for sec in range(1, int(school.section_class5) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 6:
+                for sec in range(1, int(school.section_class6) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 7:
+                for sec in range(1, int(school.section_class7) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 8:
+                for sec in range(1, int(school.section_class8) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 9:
+                for sec in range(1, int(school.section_class9) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 10:
+                for sec in range(1, int(school.section_class10) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 11:
+                for sec in range(1, int(school.section_class11) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
+            if i == 12:
+                for sec in range(1, int(school.section_class12) + 1):
+                    sub = subject_class.objects.filter(school_id__school_id=school.school_id, class_id=i,
+                                                       section_id=chr(sec + 64))
+                    for s in sub:
+                        if request.POST.get(str(i) + chr(sec + 64) + s.subject_name, ''):
+                            class_id = request.POST.get(str(i) + chr(sec + 64) + s.subject_name, '')
+                        if request.POST.get(chr(sec + 64) + str(i) + s.subject_name, ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i) + s.subject_name, '')
+                        if request.POST.get(s.subject_name + class_id + sec_id, ''):
+                            subject_teacher = request.POST.get(s.subject_name + class_id + sec_id, '')
+                            if teacher_info.objects.get(school_id=school, teacher_id=subject_teacher):
+                                teacher = teacher_info.objects.get(school_id=school, teacher_id=subject_teacher)
+                            else:
+                                teacher = None
+                            ts = teacher_subject(class_id=class_id, section_id=sec_id, subject=s.subject_name, teacher_id=teacher,
+                                                 school_id=school)
+                            ts.save()
 
         return HttpResponseRedirect('/teacher-tagging/')
 
@@ -1685,15 +1902,188 @@ def class_teacher_tagging(request):
     user = request.user
     school = school_info.objects.get(user=user)
     if request.method == 'POST':
-        class_id = request.POST.get('classid', '')
-        sec_id = request.POST.get('secid', '')
-        teacher = request.POST.get('class_teacher', '')
-        if teacher_info.objects.get(school_id=school, teacher_id=teacher):
-            teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
-        else:
-            teacher = None
-        ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher, school_id=school)
-        ct.save()
+        for i in range(int(school.start_class), int(school.end_class) + 1):
+            if i == 1:
+                for sec in range(1, int(school.section_class1) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 2:
+                for sec in range(1, int(school.section_class2) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 3:
+                for sec in range(1, int(school.section_class3) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 4:
+                for sec in range(1, int(school.section_class4) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 5:
+                for sec in range(1, int(school.section_class5) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 6:
+                for sec in range(1, int(school.section_class6) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 7:
+                for sec in range(1, int(school.section_class7) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 8:
+                for sec in range(1, int(school.section_class8) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 9:
+                for sec in range(1, int(school.section_class9) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 10:
+                for sec in range(1, int(school.section_class10) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 11:
+                for sec in range(1, int(school.section_class11) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+            if i == 12:
+                for sec in range(1, int(school.section_class12) + 1):
+                    if request.POST.get(str(i) + chr(sec + 64), ''):
+                        class_id = request.POST.get(str(i) + chr(sec + 64), '')
+                        if request.POST.get(chr(sec + 64) + str(i), ''):
+                            sec_id = request.POST.get(chr(sec + 64) + str(i), '')
+                            if request.POST.get('class_teacher' + str(i) + chr(sec + 64), ''):
+                                teacher = request.POST.get('class_teacher' + str(i) + chr(sec + 64), '')
+                                try:
+                                    teacher = teacher_info.objects.get(school_id=school, teacher_id=teacher)
+                                    ct = class_teacher(class_id=class_id, section_id=sec_id, teacher_id=teacher,
+                                                       school_id=school)
+                                    ct.save()
+                                except teacher_info.DoesNotExist:
+                                    pass
+
         return HttpResponseRedirect('/teacher-tagging/')
 
     return HttpResponseNotAllowed('Only POST supported')

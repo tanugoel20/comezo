@@ -16,3 +16,10 @@ def to_int(value):
 @register.filter(name='strng')
 def str_(value):
     return str(value)
+
+
+@register.filter(name='flag_reverse')
+def flag_reverse_(boolean):
+    flag = not boolean
+    #return not boolean
+    return flag
